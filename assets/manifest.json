@@ -1,0 +1,181 @@
+{
+  "comparisons": [
+    {
+      "file": "comparisons/barn-ms.webp",
+      "dimensions": [
+        1600,
+        892
+      ],
+      "source_bytes": 1397447,
+      "bytes": 966302,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/barn-t2.webp",
+      "dimensions": [
+        1600,
+        892
+      ],
+      "source_bytes": 1595114,
+      "bytes": 1094924,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/bicycle-gt.webp",
+      "dimensions": [
+        1237,
+        822
+      ],
+      "source_bytes": 1932086,
+      "bytes": 1210886,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/bicycle-t2.webp",
+      "dimensions": [
+        1237,
+        822
+      ],
+      "source_bytes": 1933347,
+      "bytes": 1244418,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/garden-gt.webp",
+      "dimensions": [
+        1297,
+        840
+      ],
+      "source_bytes": 2258627,
+      "bytes": 1497832,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/garden-t2.webp",
+      "dimensions": [
+        1297,
+        840
+      ],
+      "source_bytes": 2168191,
+      "bytes": 1494002,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/kitchen-gt.webp",
+      "dimensions": [
+        1558,
+        1039
+      ],
+      "source_bytes": 2619718,
+      "bytes": 1791670,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/kitchen-t2.webp",
+      "dimensions": [
+        1558,
+        1039
+      ],
+      "source_bytes": 2514064,
+      "bytes": 1711316,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/shelf-ms.webp",
+      "dimensions": [
+        1508,
+        1002
+      ],
+      "source_bytes": 1685430,
+      "bytes": 1244878,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/shelf-t2.webp",
+      "dimensions": [
+        1508,
+        1002
+      ],
+      "source_bytes": 1719270,
+      "bytes": 1260022,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/truck-ms.webp",
+      "dimensions": [
+        979,
+        546
+      ],
+      "source_bytes": 765584,
+      "bytes": 543512,
+      "decoded_pixel_equality": true
+    },
+    {
+      "file": "comparisons/truck-t2.webp",
+      "dimensions": [
+        979,
+        546
+      ],
+      "source_bytes": 787275,
+      "bytes": 551410,
+      "decoded_pixel_equality": true
+    }
+  ],
+  "figures": [
+    {
+      "file": "images/teaser.webp",
+      "source": "T2Splat_NeurIPS2026-8.pdf, page 1",
+      "method": "Entire PDF Form XObject extracted and rendered; no cropping, redraw, or content edits",
+      "dimensions": [
+        2795,
+        1728
+      ],
+      "bytes": 2872094,
+      "encoding": "Lossless WebP"
+    },
+    {
+      "file": "images/pipeline.webp",
+      "source": "T2Splat_NeurIPS2026-8.pdf, page 4",
+      "method": "Entire PDF Form XObject extracted and rendered; no cropping, redraw, or content edits",
+      "dimensions": [
+        3083,
+        973
+      ],
+      "bytes": 515226,
+      "encoding": "Lossless WebP"
+    }
+  ],
+  "video": {
+    "file": "video/overview.mp4",
+    "source": "Original website assets/video/video.mp4",
+    "bytes": 57833068,
+    "width": 1666,
+    "height": 1080,
+    "duration_seconds": 40.13333333333333,
+    "fps": 30,
+    "codec": "H.264 High (avc1)",
+    "unchanged_original_copy": false,
+    "sha256": "db145ded17ab798c7fa19c8ee9654da5dd23c598824225c9eac24fdedb6db8e3",
+    "notes": [
+      "The subtitle at approximately 22 seconds still says Restricted Delaunay Triangulation; frame content is preserved without overlays or cropping.",
+      "This browser-compatible H.264 derivative uses lossy re-encoding. Original HEVC video remains unchanged in the working copy.",
+      "Silent audio track removed."
+    ],
+    "frame_count": 1204,
+    "pixel_format": "yuv420p",
+    "encoding": "FFmpeg h264_videotoolbox, requested bitrate 8M; observed average video bitrate 11.526 Mbit/s",
+    "faststart": true,
+    "audio": false,
+    "verification": "All 1204 video frames decoded successfully. Resolution and 30 FPS preserved. MP4 moov atom precedes mdat."
+  },
+  "poster": {
+    "file": "images/overview-poster.webp",
+    "dimensions": [
+      1666,
+      1080
+    ],
+    "bytes": 1985974,
+    "source_time_seconds": 1,
+    "encoding": "Lossless WebP"
+  }
+}

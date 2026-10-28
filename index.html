@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>T²-Splat — Adaptive Topology Mesh Splatting · NeurIPS 2026</title>
+  <meta name="description" content="T²-Splat learns compact triangle meshes with Safe RDT, Dynamic Topology Evolution, and residual per-face Mip-textures. NeurIPS 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="T²-Splat · NeurIPS 2026">
+  <meta property="og:description" content="Adaptive Topology Mesh Splatting with Texture Residuals. Compact geometry. Detailed appearance.">
+  <meta property="og:image" content="https://t2-splat.github.io/assets/images/teaser.webp">
+  <meta property="og:url" content="https://t2-splat.github.io/">
+  <link rel="canonical" href="https://t2-splat.github.io/">
+  <meta name="citation_pdf_url" content="https://t2-splat.github.io/assets/papers/t2-splat.pdf">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="T2-Splat: Adaptive Topology Mesh Splatting with Texture Residuals">
+  <meta name="citation_author" content="Tang, Zhihao">
+  <meta name="citation_author" content="Zhang, Youjia">
+  <meta name="citation_author" content="Zhao, Mingbo">
+  <meta name="citation_author" content="Yang, Wei">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="Advances in Neural Information Processing Systems">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a href="#" class="wordmark" aria-label="T squared Splat home"><span class="brand-mark" aria-hidden="true">△</span> T<sup>2</sup>-Splat</a>
+      <div class="nav-links"><a href="#method">Method</a><a href="#results">Results</a><a href="#export">Export</a><a href="#citation">Cite</a></div>
+      <a class="nav-paper" href="assets/papers/t2-splat.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="title">
+      <div class="venue"><span aria-hidden="true"></span> NeurIPS 2026</div>
+      <h1 id="title"><span class="hero-name">T<sup>2</sup>-Splat</span><span class="hero-title">Adaptive Topology Mesh Splatting<br class="desktop-break"> with Texture Residuals</span></h1>
+      <p class="authors"><span>Zhihao Tang<sup>1</sup></span><span>Youjia Zhang<sup>1</sup></span><span>Mingbo Zhao<sup>2</sup></span><span>Wei Yang<sup>1,*</sup></span></p>
+      <p class="affiliations"><span><sup>1</sup> Huazhong University of Science and Technology</span><span><sup>2</sup> Donghua University</span></p>
+      <p class="corresponding">* Corresponding author</p>
+      <div class="resource-links">
+        <a class="button button-primary" href="assets/papers/t2-splat.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Zm0 0v5h5M8 13h8M8 17h6"/></svg>Paper &amp; supplement</a>
+        <a class="button button-secondary" id="code-link" href="#resources"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></svg><span id="code-label">Code availability</span></a>
+        <a class="button button-secondary" href="#overview"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></svg>Video</a>
+        <a class="button button-secondary" href="#citation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 7H4v7h6V7Zm10 0h-6v7h6V7ZM10 14c0 4-2 5-4 5m14-5c0 4-2 5-4 5"/></svg>BibTeX</a>
+      </div>
+      <p class="hero-summary">Compact geometry. Detailed appearance.<br><span>Adaptive mesh connectivity meets residual per-face textures.</span></p>
+      <figure class="overview" id="overview">
+        <video id="overview-video" controls playsinline muted loop preload="none" poster="assets/images/overview-poster.webp" aria-label="T squared Splat overview video"><source src="assets/video/overview.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/video/overview.mp4">Download the overview video.</a></video>
+        <figcaption><span class="video-dot" aria-hidden="true"></span> Project overview. The video uses the earlier RDT label; the updated method diagram below describes Safe RDT.</figcaption>
+      </figure>
+      <div class="metrics" aria-label="Key results">
+        <div><strong>+0.79 <span>dB</span></strong><p>PSNR on Mip-NeRF 360</p><small>vs. MeshSplatting · 9-scene average</small></div>
+        <div><strong>53<span>%</span></strong><p>Fewer faces in the ablation</p><small>Full method vs. baseline · 5.3M → 2.5M</small></div>
+        <div><strong>236 <span>FPS</span></strong><p>OpenGL on a MacBook Air M3</p><small>Garden · baked vertex-colored PLY</small></div>
+      </div>
+    </section>
+
+    <section class="section wrap intro" aria-labelledby="abstract-title">
+      <div class="section-intro"><p class="eyebrow">The idea</p><h2 id="abstract-title">Let geometry and appearance<br>do what they do best.</h2></div>
+      <div class="prose"><p>Triangle-based splatting connects novel-view synthesis with conventional mesh rendering, but dense tessellation and vertex-only appearance limit its efficiency and detail. <strong>T<sup>2</sup>-Splat combines adaptive mesh topology with residual per-face Mip-textures.</strong></p><p>Safe Restricted Delaunay Triangulation initializes mesh connectivity. Dynamic Topology Evolution then reallocates triangles through edge collapse and vertex split. A second stage jointly optimizes vertex spherical harmonics and residual textures on the fixed mesh, recovering appearance detail with scale-adaptive filtering.</p><p>We evaluate rendering on Mip-NeRF 360 and Tanks &amp; Temples, and surface reconstruction on DTU.</p></div>
+    </section>
+
+    <section class="section method-section" id="method" aria-labelledby="method-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">The method</p><h2 id="method-title">Evolve the mesh.<br>Then refine the appearance.</h2></div><p>Two stages, one compact representation.</p></div>
+        <figure class="pipeline-figure"><a href="assets/images/pipeline.webp" target="_blank" rel="noopener" aria-label="Open the full-resolution T squared Splat pipeline"><img src="assets/images/pipeline.webp" alt="Stage I: point cloud, triangle soup, densification and pruning, Safe RDT, and DTE with edge collapse and vertex split. Stage II: residual Mip-texture appearance refinement." width="3083" height="973" loading="lazy" decoding="async"></a><figcaption>Stage I adapts connectivity. Stage II refines appearance on the fixed mesh.</figcaption></figure>
+        <div class="method-steps">
+          <article><span class="step-number">01 / INITIALIZE</span><h3>Safe RDT</h3><p>Select and consistently orient candidate faces with edge-incidence and vertex-fan constraints. Open boundaries and multiple components are supported.</p></article>
+          <article><span class="step-number">02 / ADAPT</span><h3>Dynamic topology evolution</h3><p>Edge collapse removes redundant geometry; vertex split adds local degrees of freedom. Their relative rates control the final face budget.</p></article>
+          <article><span class="step-number">03 / REFINE</span><h3>Residual Mip-textures</h3><p>Optimize per-face textures and vertex SH coefficients on fixed geometry. Scale-adaptive sampling preserves detail while reducing aliasing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><div><p class="eyebrow">Visual results</p><h2 id="results-title">Look closer.</h2></div><p>Drag the divider to compare.<br>Use the arrow keys when a comparison is focused.</p></div>
+      <div class="filter-bar" role="group" aria-label="Filter comparisons"><button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">All scenes</button><button type="button" class="filter-button" data-filter="baseline" aria-pressed="false">vs. MeshSplatting</button><button type="button" class="filter-button" data-filter="reference" aria-pressed="false">vs. Ground truth</button></div>
+      <div class="comparison-grid">
+        <figure class="comparison-card" data-group="baseline"><div class="comparison-frame" style="--split:50%"><img src="assets/comparisons/shelf-t2.webp" alt="T squared Splat rendering of the Shelf scene" loading="lazy" decoding="async"><div class="comparison-before"><img src="assets/comparisons/shelf-ms.webp" alt="MeshSplatting rendering of the Shelf scene" loading="lazy" decoding="async"></div><span class="image-label label-left">MeshSplatting</span><span class="image-label label-right">T<sup>2</sup>-Splat</span><span class="comparison-divider" aria-hidden="true"><span>↔</span></span><input type="range" min="0" max="100" value="50" aria-label="Compare Shelf: MeshSplatting on the left, T squared Splat on the right"></div><figcaption><strong>Shelf</strong><span>STRinGS-360 · fine text and texture</span></figcaption></figure>
+        <figure class="comparison-card" data-group="reference"><div class="comparison-frame" style="--split:50%"><img src="assets/comparisons/garden-t2.webp" alt="T squared Splat rendering of the Garden scene" loading="lazy" decoding="async"><div class="comparison-before"><img src="assets/comparisons/garden-gt.webp" alt="Ground-truth view of the Garden scene" loading="lazy" decoding="async"></div><span class="image-label label-left">Ground truth</span><span class="image-label label-right">T<sup>2</sup>-Splat</span><span class="comparison-divider" aria-hidden="true"><span>↔</span></span><input type="range" min="0" max="100" value="50" aria-label="Compare Garden: ground truth on the left, T squared Splat on the right"></div><figcaption><strong>Garden</strong><span>Mip-NeRF 360</span></figcaption></figure>
+        <figure class="comparison-card" data-group="baseline"><div class="comparison-frame" style="--split:50%"><img src="assets/comparisons/truck-t2.webp" alt="T squared Splat rendering of the Truck scene" loading="lazy" decoding="async"><div class="comparison-before"><img src="assets/comparisons/truck-ms.webp" alt="MeshSplatting rendering of the Truck scene" loading="lazy" decoding="async"></div><span class="image-label label-left">MeshSplatting</span><span class="image-label label-right">T<sup>2</sup>-Splat</span><span class="comparison-divider" aria-hidden="true"><span>↔</span></span><input type="range" min="0" max="100" value="50" aria-label="Compare Truck: MeshSplatting on the left, T squared Splat on the right"></div><figcaption><strong>Truck</strong><span>Tanks &amp; Temples</span></figcaption></figure>
+        <figure class="comparison-card" data-group="reference"><div class="comparison-frame" style="--split:50%"><img src="assets/comparisons/bicycle-t2.webp" alt="T squared Splat rendering of the Bicycle scene" loading="lazy" decoding="async"><div class="comparison-before"><img src="assets/comparisons/bicycle-gt.webp" alt="Ground-truth view of the Bicycle scene" loading="lazy" decoding="async"></div><span class="image-label label-left">Ground truth</span><span class="image-label label-right">T<sup>2</sup>-Splat</span><span class="comparison-divider" aria-hidden="true"><span>↔</span></span><input type="range" min="0" max="100" value="50" aria-label="Compare Bicycle: ground truth on the left, T squared Splat on the right"></div><figcaption><strong>Bicycle</strong><span>Mip-NeRF 360</span></figcaption></figure>
+        <figure class="comparison-card" data-group="baseline"><div class="comparison-frame" style="--split:50%"><img src="assets/comparisons/barn-t2.webp" alt="T squared Splat rendering of the Barn scene" loading="lazy" decoding="async"><div class="comparison-before"><img src="assets/comparisons/barn-ms.webp" alt="MeshSplatting rendering of the Barn scene" loading="lazy" decoding="async"></div><span class="image-label label-left">MeshSplatting</span><span class="image-label label-right">T<sup>2</sup>-Splat</span><span class="comparison-divider" aria-hidden="true"><span>↔</span></span><input type="range" min="0" max="100" value="50" aria-label="Compare Barn: MeshSplatting on the left, T squared Splat on the right"></div><figcaption><strong>Barn</strong><span>Tanks &amp; Temples</span></figcaption></figure>
+        <figure class="comparison-card" data-group="reference"><div class="comparison-frame" style="--split:50%"><img src="assets/comparisons/kitchen-t2.webp" alt="T squared Splat rendering of the Kitchen scene" loading="lazy" decoding="async"><div class="comparison-before"><img src="assets/comparisons/kitchen-gt.webp" alt="Ground-truth view of the Kitchen scene" loading="lazy" decoding="async"></div><span class="image-label label-left">Ground truth</span><span class="image-label label-right">T<sup>2</sup>-Splat</span><span class="comparison-divider" aria-hidden="true"><span>↔</span></span><input type="range" min="0" max="100" value="50" aria-label="Compare Kitchen: ground truth on the left, T squared Splat on the right"></div><figcaption><strong>Kitchen</strong><span>Mip-NeRF 360</span></figcaption></figure>
+      </div>
+      <p class="section-note">Comparisons use the supplied scene renders. Ground-truth views are reference photographs, not outputs of a competing method.</p>
+    </section>
+
+    <section class="section data-section" aria-labelledby="numbers-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">Measured results</p><h2 id="numbers-title">A smaller mesh.<br>A useful quality–size trade-off.</h2></div><p>Quantitative results from the paper.</p></div>
+      <div class="data-grid"><div class="table-panel"><h3>Mip-NeRF 360</h3><p class="panel-subtitle">Nine-scene averages · mesh-based renderings</p><div class="table-scroll"><table><caption class="sr-only">Mesh-based novel-view synthesis results on Mip-NeRF 360</caption><thead><tr><th scope="col">Method</th><th scope="col">PSNR ↑</th><th scope="col">LPIPS ↓</th><th scope="col">SSIM ↑</th></tr></thead><tbody><tr><th scope="row">MiLo</th><td>24.09</td><td>0.323</td><td>0.688</td></tr><tr><th scope="row">Gaussian Wrapping</th><td>25.10</td><td>0.289</td><td>0.752</td></tr><tr><th scope="row">MeshSplatting</th><td>24.70</td><td>0.310</td><td>0.728</td></tr><tr class="ours"><th scope="row">T<sup>2</sup>-Splat</th><td>25.49</td><td>0.234</td><td>0.779</td></tr></tbody></table></div><p class="small-note">Selected mesh-based baselines from Table 1. See the paper for the full evaluation.</p></div>
+      <div class="budget-panel"><h3>Choose a mesh budget</h3><p class="panel-subtitle">Garden · DTE-controlled final face counts</p><div class="budget-controls" role="group" aria-label="Garden mesh budget"><button type="button" class="is-active" data-budget="100" aria-pressed="true">100%</button><button type="button" data-budget="50" aria-pressed="false">50%</button><button type="button" data-budget="10" aria-pressed="false">10%</button></div><div class="budget-result" aria-live="polite" aria-atomic="true"><div class="face-count"><strong id="budget-faces">2.7M</strong><span>faces</span></div><div class="budget-track" aria-hidden="true"><span id="budget-bar"></span></div><dl class="budget-stats"><div><dt>PSNR ↑</dt><dd id="budget-psnr">25.68</dd></div><div><dt>LPIPS ↓</dt><dd id="budget-lpips">0.15</dd></div><div><dt>SSIM ↑</dt><dd id="budget-ssim">0.818</dd></div></dl><p class="small-note" id="budget-note">The full configuration balances geometric detail and appearance quality.</p></div><p class="small-note">Each mesh is produced by Stage I DTE, followed by Stage II appearance refinement. These are separate trained configurations, not a live simplification demo.</p></div></div>
+      <details class="paper-figure"><summary>View the paper’s overview figure <span aria-hidden="true">＋</span></summary><img src="assets/images/teaser.webp" alt="Paper overview: visual comparisons on Shelf and Garden quality versus face count" width="2795" height="1728" loading="lazy" decoding="async"></details>
+    </div></section>
+
+    <section class="section wrap" id="export" aria-labelledby="export-title">
+      <div class="section-heading"><div><p class="eyebrow">Beyond the renderer</p><h2 id="export-title">Meshes you can work with.</h2></div><p>Export to familiar graphics formats.</p></div>
+      <div class="export-grid"><article><span class="format-tag">.PLY</span><h3>Geometry + vertex color</h3><p>Bake SH and residual texture contributions into vertex RGB. The default export preserves the original vertices, faces, and mesh connectivity.</p><div class="export-stats"><span><strong>62 MB</strong> Garden mesh</span><span><strong>236 FPS</strong> OpenGL · MacBook Air M3</span></div></article><article><span class="format-tag">.GLB</span><h3>Geometry + texture atlas</h3><p>Bake per-face RGB textures into embedded PNG atlases with UVs and materials. The triangle count stays unchanged; face corners are expanded for independent UVs.</p><p class="small-note">Preserves more intra-face texture detail, with additional texture storage.</p></article></div>
+      <p class="export-note"><strong>About baked appearance.</strong> Both exports are static and do not preserve view-dependent effects. PLY may smooth fine texture detail; GLB viewer mipmaps do not exactly reproduce training-time per-face LOD sampling. The reported file size and FPS refer to the baked PLY, not the full trainable appearance model.</p>
+    </section>
+
+    <section class="section resources-section" id="resources" aria-labelledby="resources-title"><div class="wrap resources-grid"><div><p class="eyebrow">Resources</p><h2 id="resources-title">Read. Reproduce. Build.</h2><p>The paper includes the method, implementation details, ablations, and additional results.</p></div><div class="resource-list"><a href="assets/papers/t2-splat.pdf" target="_blank" rel="noopener"><span><strong>Paper &amp; supplementary material</strong><small>PDF · full manuscript</small></span><span aria-hidden="true">↗</span></a><div class="resource-status" id="code-status"><span><strong>Code release</strong><small>The public repository link will be added here when available.</small></span><span class="status-tag">Coming soon</span></div><a href="mailto:zhtang2004@gmail.com"><span><strong>Contact</strong><small>zhtang2004@gmail.com</small></span><span aria-hidden="true">↗</span></a></div></div></section>
+
+    <section class="section wrap citation-section" id="citation" aria-labelledby="citation-title"><div class="section-heading"><div><p class="eyebrow">Citation</p><h2 id="citation-title">BibTeX</h2></div><button class="button button-secondary copy-button" id="copy-citation" type="button"><span aria-hidden="true">⧉</span> Copy citation</button></div><pre><code id="bibtex">@inproceedings{tang2026t2splat,
+  title     = {T2-Splat: Adaptive Topology Mesh Splatting with Texture Residuals},
+  author    = {Tang, Zhihao and Zhang, Youjia and Zhao, Mingbo and Yang, Wei},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}</code></pre><p class="sr-only" id="copy-status" role="status"></p></section>
+  </main>
+  <footer class="footer wrap"><a class="wordmark" href="#">T<sup>2</sup>-Splat</a><p>Zhihao Tang · Youjia Zhang · Mingbo Zhao · Wei Yang<br>NeurIPS 2026</p><a href="mailto:weiyangcs@hust.edu.cn">Contact the corresponding author <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
