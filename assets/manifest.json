@@ -148,25 +148,42 @@
   "video": {
     "file": "video/overview.mp4",
     "source": "Original website assets/video/video.mp4",
-    "bytes": 57833068,
+    "bytes": 57320423,
     "width": 1666,
     "height": 1080,
     "duration_seconds": 40.13333333333333,
     "fps": 30,
     "codec": "H.264 High (avc1)",
     "unchanged_original_copy": false,
-    "sha256": "db145ded17ab798c7fa19c8ee9654da5dd23c598824225c9eac24fdedb6db8e3",
+    "sha256": "0526c48e5b71d35158ad62632f386be2830fb749f4862ba2033e437b817c4680",
     "notes": [
-      "The subtitle at approximately 22 seconds still says Restricted Delaunay Triangulation; frame content is preserved without overlays or cropping.",
-      "This browser-compatible H.264 derivative uses lossy re-encoding. Original HEVC video remains unchanged in the working copy.",
+      "The original RDT caption is replaced with “Next, we use Safe RDT / to construct a manifold mesh.” on frames 558–709 (zero-based, inclusive).",
+      "An opaque dark caption band covers x=0..1665, y=912..1079 only during this caption interval, preventing the original burned-in text from showing through.",
+      "All 1204 original video frames and their timing are retained. This browser-compatible H.264 derivative uses lossy re-encoding; the original HEVC video remains unchanged in the working copy.",
       "Silent audio track removed."
     ],
     "frame_count": 1204,
     "pixel_format": "yuv420p",
-    "encoding": "FFmpeg h264_videotoolbox, requested bitrate 8M; observed average video bitrate 11.526 Mbit/s",
+    "encoding": "FFmpeg h264_videotoolbox, requested bitrate 8M; encoded directly from the original HEVC source",
     "faststart": true,
     "audio": false,
-    "verification": "All 1204 video frames decoded successfully. Resolution and 30 FPS preserved. MP4 moov atom precedes mdat."
+    "verification": "All 1204 video frames decoded successfully. Frames 557, 558, 660, 709 and 710 checked for correct caption boundaries. Resolution and 30 FPS preserved. MP4 moov atom precedes mdat.",
+    "caption_edit": {
+      "first_frame": 558,
+      "last_frame_inclusive": 709,
+      "start_seconds": 18.6,
+      "end_seconds_exclusive": 23.666666666666668,
+      "text": [
+        "Next, we use Safe RDT",
+        "to construct a manifold mesh."
+      ],
+      "region_xywh": [
+        0,
+        912,
+        1666,
+        168
+      ]
+    }
   },
   "poster": {
     "file": "images/overview-poster.webp",

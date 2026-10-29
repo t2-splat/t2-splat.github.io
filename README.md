@@ -49,7 +49,7 @@ const publicCodeUrl = 'https://github.com/t2-splat/T2Splat';
 - **作者、单位与联系信息：** 修改 `index.html` 中的 authors、affiliations、Resources、footer，同时同步顶部 `citation_author` 元信息和末尾 BibTeX。
 - **代码入口：** `assets/js/site.js` 中的 `publicCodeUrl` 当前保持为空；公开代码后再更新。
 - **指标与文案：** 平均结果和关键指标在 `index.html`；Garden 的 100% / 50% / 10% 数据及说明在 `assets/js/site.js` 的 `budgets` 对象。更新时同时核对论文及指标口径。
-- **视频：** `assets/video/overview.mp4` 为原网页视频。已转换为浏览器兼容的 H.264 / yuv420p，启用 faststart；原始 HEVC 文件保存在工作目录。原视频约 22 秒的字幕仍写 RDT，更新视频时应与 Safe RDT 的方法命名同步。
+- **视频：** `assets/video/overview.mp4` 基于原网页视频，相关字幕已更新为 Safe RDT，与论文及方法图的命名一致。视频采用浏览器兼容的 H.264 / yuv420p 编码并启用 faststart；原始 HEVC 文件保存在工作目录。
 - **实验图片：** 对比图为无损 WebP；不要用生成式工具修改实验结果。论文示意图来源和转换记录见 `assets/manifest.json`，替换素材时同步更新记录。
 - **分享预览：** `og:image`、`og:url`、canonical 与论文链接元信息已配置为预留地址 `https://t2-splat.github.io/`。当前站点未上线，换域名时需同步更新。
 
