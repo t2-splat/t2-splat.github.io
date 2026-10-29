@@ -1,22 +1,5 @@
 (() => {
   'use strict';
-  // Set this to the verified public code repository when the release is ready.
-  const publicCodeUrl = '';
-  if (publicCodeUrl) {
-    const link = document.getElementById('code-link');
-    link.href = publicCodeUrl;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    document.getElementById('code-label').textContent = 'Code';
-    const status = document.getElementById('code-status');
-    const resource = document.createElement('a');
-    resource.href = publicCodeUrl;
-    resource.target = '_blank';
-    resource.rel = 'noopener';
-    resource.innerHTML = '<span><strong>Code &amp; installation</strong><small>Official implementation on GitHub</small></span><span aria-hidden="true">↗</span>';
-    status.replaceWith(resource);
-  }
-
   document.querySelectorAll('.comparison-frame input').forEach(input => {
     const update = () => {
       input.closest('.comparison-frame').style.setProperty('--split', `${input.value}%`);

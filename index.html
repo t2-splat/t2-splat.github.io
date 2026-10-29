@@ -23,7 +23,7 @@
   <meta name="citation_conference_title" content="Advances in Neural Information Processing Systems">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/site.css?v=neurips-case">
-  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/site.js?v=code-release" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,7 +43,7 @@
       <p class="corresponding">&dagger; Corresponding author</p>
       <div class="resource-links">
         <a class="button button-primary" href="assets/papers/t2-splat.pdf?v=45d27b4ad61f" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Zm0 0v5h5M8 13h8M8 17h6"/></svg>Paper</a>
-        <a class="button button-secondary" id="code-link" href="#resources"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></svg><span id="code-label">Code availability</span></a>
+        <a class="button button-secondary" id="code-link" href="https://github.com/t2-splat/T2Splat" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></svg><span id="code-label">Code</span></a>
         <a class="button button-secondary" href="#overview"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></svg>Video</a>
         <a class="button button-secondary" href="#citation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 7H4v7h6V7Zm10 0h-6v7h6V7ZM10 14c0 4-2 5-4 5m14-5c0 4-2 5-4 5"/></svg>BibTeX</a>
       </div>
@@ -103,7 +103,7 @@
       <p class="export-note"><strong>About baked appearance.</strong> Both exports are static and do not preserve view-dependent effects. PLY may smooth fine texture detail; GLB viewer mipmaps do not exactly reproduce training-time per-face LOD sampling. The reported file size and FPS refer to the baked PLY, not the full trainable appearance model.</p>
     </section>
 
-    <section class="section resources-section" id="resources" aria-labelledby="resources-title"><div class="wrap resources-grid"><div><p class="eyebrow">Resources</p><h2 id="resources-title">Read. Reproduce. Build.</h2><p>The paper includes the method, implementation details, ablations, and additional results.</p></div><div class="resource-list"><a href="assets/papers/t2-splat.pdf?v=45d27b4ad61f" target="_blank" rel="noopener"><span><strong>Paper</strong><small>PDF · full manuscript</small></span><span aria-hidden="true">↗</span></a><div class="resource-status" id="code-status"><span><strong>Code release</strong><small>The public repository link will be added here when available.</small></span><span class="status-tag">Coming soon</span></div></div></div></section>
+    <section class="section resources-section" id="resources" aria-labelledby="resources-title"><div class="wrap resources-grid"><div><p class="eyebrow">Resources</p><h2 id="resources-title">Read. Reproduce. Build.</h2><p>The paper includes the method, implementation details, ablations, and additional results.</p></div><div class="resource-list"><a href="assets/papers/t2-splat.pdf?v=45d27b4ad61f" target="_blank" rel="noopener"><span><strong>Paper</strong><small>PDF · full manuscript</small></span><span aria-hidden="true">↗</span></a><a href="https://github.com/t2-splat/T2Splat" target="_blank" rel="noopener"><span><strong>Code &amp; installation</strong><small>Official implementation on GitHub</small></span><span aria-hidden="true">↗</span></a></div></div></section>
 
     <section class="section wrap citation-section" id="citation" aria-labelledby="citation-title"><div class="section-heading"><div><p class="eyebrow">Citation</p><h2 id="citation-title">BibTeX</h2></div><button class="button button-secondary copy-button" id="copy-citation" type="button"><span aria-hidden="true">⧉</span> Copy citation</button></div><pre><code id="bibtex">@inproceedings{tang2026t2splat,
   title     = {T2-Splat: Adaptive Topology Mesh Splatting with Texture Residuals},
