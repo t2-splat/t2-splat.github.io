@@ -147,27 +147,28 @@
   ],
   "video": {
     "file": "video/overview.mp4",
-    "source": "Original website assets/video/video.mp4",
-    "bytes": 57320423,
+    "source": "User-supplied website archive: assets/video/overview.mp4",
+    "bytes": 18910022,
     "width": 1666,
     "height": 1080,
     "duration_seconds": 40.13333333333333,
     "fps": 30,
     "codec": "H.264 High (avc1)",
     "unchanged_original_copy": false,
-    "sha256": "0526c48e5b71d35158ad62632f386be2830fb749f4862ba2033e437b817c4680",
+    "sha256": "88902abd16196887bcc794c6e57ffbc4f36b902b87d62ac34f694dcd9dc9694a",
     "notes": [
       "The original RDT caption is replaced with “Next, we use Safe RDT / to construct a manifold mesh.” on frames 558–709 (zero-based, inclusive).",
       "An opaque dark caption band covers x=0..1665, y=912..1079 only during this caption interval, preventing the original burned-in text from showing through.",
       "All 1204 original video frames and their timing are retained. This browser-compatible H.264 derivative uses lossy re-encoding; the original HEVC video remains unchanged in the working copy.",
-      "Silent audio track removed."
+      "Silent audio track removed.",
+      "2026-11-05: web-size derivative re-encoded from the supplied MP4, retaining all 1204 frames and original dimensions; file reduced from 57.32 MB to 18.91 MB."
     ],
     "frame_count": 1204,
     "pixel_format": "yuv420p",
-    "encoding": "FFmpeg h264_videotoolbox, requested bitrate 8M; encoded directly from the original HEVC source",
+    "encoding": "H.264 High / libx264, yuv420p, 30 FPS, faststart",
     "faststart": true,
     "audio": false,
-    "verification": "All 1204 video frames decoded successfully. Frames 557, 558, 660, 709 and 710 checked for correct caption boundaries. Resolution and 30 FPS preserved. MP4 moov atom precedes mdat.",
+    "verification": "All 1204 frames decoded successfully; 7s and 20s frames inspected; MP4 moov precedes mdat.",
     "caption_edit": {
       "first_frame": 558,
       "last_frame_inclusive": 709,
@@ -194,5 +195,11 @@
     "bytes": 1985974,
     "source_time_seconds": 1,
     "encoding": "Lossless WebP"
+  },
+  "paper": {
+    "file": "papers/t2-splat.pdf",
+    "source": "view-4.pdf supplied by user",
+    "pages": 27,
+    "sha256": "0b855aa243959dd33b2ac361bc75abcb89bc98a5394de0d59f2812a5973855cf"
   }
 }
